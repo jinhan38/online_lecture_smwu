@@ -13,6 +13,9 @@ class ImageScreen extends StatelessWidget {
         child: Column(
           children: [
             Text("contain(기본)"),
+
+
+            
             Container(
               color: Colors.grey,
               child: Image.asset(
