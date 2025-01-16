@@ -47,4 +47,21 @@ class Collections {
     int ageFour = ageList[3];
     print("ageFour : $ageFour");
   }
+
+  void collectionMap() {
+    Map<String, int> nameAgeMap = {};
+    nameAgeMap["김진한"] = 34;
+    print(nameAgeMap);
+
+    Map<String, dynamic> dynamicMap = {};
+    dynamicMap["a"] = 1;
+    dynamicMap["b"] = "고양이";
+    dynamicMap["c"] = true;
+    print(dynamicMap);
+    print("get dynamicMap : ${dynamicMap["b"]}");
+    dynamicMap.remove("c");
+    print("remove dynamicMap : $dynamicMap");
+    dynamicMap.length;
+    dynamicMap.clear();
+  }
 }
