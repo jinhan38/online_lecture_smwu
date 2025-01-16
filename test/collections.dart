@@ -1,7 +1,12 @@
 class Collections {
   /// List, Map, Set
 
-  void listPractice() {}
+  void listPractice() {
+    List<String> animalList = [];
+    animalList.addAll(["강아지", "고양이", "양", "닭", "사자"]);
+    animalList.removeAt(1);
+    print(animalList);
+  }
 
   void listAdd() {
     int age = 34;
