@@ -6,6 +6,7 @@ import 'package:online_lecture_smwu/screen/column_screen.dart';
 import 'package:online_lecture_smwu/screen/container_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/container_screen.dart';
 import 'package:online_lecture_smwu/screen/image/image_screen.dart';
+import 'package:online_lecture_smwu/screen/listview/listview_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_screen.dart';
 import 'package:online_lecture_smwu/screen/stack/stack_practice_screen.dart';
@@ -169,6 +170,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("ListView Builder")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const ListviewPracticeScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("ListView 실습")),
             ],
           ),
         ),
