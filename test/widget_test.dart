@@ -1,9 +1,8 @@
 import 'collections.dart';
 
 void main() {
-
   Collections collections = Collections();
-  collections.collectionMap();
+  collections.practiceSet();
 }
 
 void variableTest() {

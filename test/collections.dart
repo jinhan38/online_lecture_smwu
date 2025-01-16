@@ -8,6 +8,24 @@ class Collections {
     print(animalList);
   }
 
+  void mapPractice() {
+    Map<String, int> nameMap = {};
+    nameMap.addAll({"김진한": 34, "함혜원": 35, "김휘건": 2});
+    // nameMap.remove("함혜원");
+    nameMap.removeWhere(
+      (key, value) {
+        return key == "함혜원";
+      },
+    );
+    print(nameMap);
+  }
+
+  void practiceSet() {
+    Set<String> nationSet = {"한국", "일본", "중국", "베트남", "러시아"};
+    nationSet.removeWhere((e) => e == "한국");
+    print(nationSet);
+  }
+
   void listAdd() {
     int age = 34;
     List<int> ageList = [];
@@ -63,5 +81,15 @@ class Collections {
     print("remove dynamicMap : $dynamicMap");
     dynamicMap.length;
     dynamicMap.clear();
+  }
+
+  void collectionSet() {
+    Set ss = {};
+    ss.add("a");
+    ss.add(1);
+    print("collectionSet 1 : $ss");
+
+    ss.remove("a");
+    print("collectionSet 2 : $ss");
   }
 }
