@@ -1,4 +1,10 @@
-void main() {}
+import 'collections.dart';
+
+void main() {
+
+  Collections collections = Collections();
+  collections.listController();
+}
 
 void variableTest() {
   String name = "김진한";
@@ -24,4 +30,8 @@ void variableTest() {
 
   // 상수를 final, const
   const name5 = "휘건";
+
+  int? age2 = null;
+  // int? age2 ;
+  age2 = 1;
 }
