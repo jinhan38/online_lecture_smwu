@@ -8,6 +8,7 @@ import 'package:online_lecture_smwu/screen/container_screen.dart';
 import 'package:online_lecture_smwu/screen/image/image_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_screen.dart';
+import 'package:online_lecture_smwu/screen/stack/stack_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/stack/stack_screen.dart';
 import 'package:online_lecture_smwu/screen/text/text_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/text/text_screen.dart';
@@ -135,6 +136,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("Stack")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const StackPracticeScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("Stack 실습")),
             ],
           ),
         ),
