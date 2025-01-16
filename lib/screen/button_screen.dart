@@ -13,6 +13,7 @@ import 'package:online_lecture_smwu/screen/stack/stack_screen.dart';
 import 'package:online_lecture_smwu/screen/text/text_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/text/text_screen.dart';
 
+import 'listview/listview_builder_screen.dart';
 import 'listview/listview_screen.dart';
 
 class ButtonScreen extends StatelessWidget {
@@ -158,6 +159,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("Listview")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const ListviewBuilderScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("ListView Builder")),
             ],
           ),
         ),
