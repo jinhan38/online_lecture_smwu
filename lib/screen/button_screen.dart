@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:online_lecture_smwu/screen/click/click_screen.dart';
 import 'package:online_lecture_smwu/screen/column_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/column_row_advanced_screen.dart';
 import 'package:online_lecture_smwu/screen/column_screen.dart';
@@ -202,6 +203,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("Stateful")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const ClickScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("Click")),
             ],
           ),
         ),
