@@ -20,6 +20,7 @@ import 'package:online_lecture_smwu/screen/text/text_screen.dart';
 
 import 'listview/listview_builder_screen.dart';
 import 'listview/listview_screen.dart';
+import 'text_form_field/text_form_field_screen.dart';
 
 class ButtonScreen extends StatelessWidget {
   const ButtonScreen({super.key});
@@ -224,6 +225,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("Checkbox")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const TextFormFieldScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("TextFormField")),
             ],
           ),
         ),
