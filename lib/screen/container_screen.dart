@@ -10,11 +10,11 @@ class ContainerScreen extends StatelessWidget {
         title: Text("Container"),
       ),
       body: Container(
-        width: 300,
         height: 300,
-        color: Colors.grey,
+        width: 300,
         padding: EdgeInsets.all(10),
         alignment: Alignment.bottomRight,
+        color: Colors.grey,
         child: Container(
           width: 100,
           height: 100,
