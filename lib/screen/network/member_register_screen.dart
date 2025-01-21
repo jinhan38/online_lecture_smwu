@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-class NetworkRegisterScreen extends StatefulWidget {
-  const NetworkRegisterScreen({super.key});
+class MemberRegisterScreen extends StatefulWidget {
+  const MemberRegisterScreen({super.key});
 
   @override
-  State<NetworkRegisterScreen> createState() => _NetworkRegisterScreenState();
+  State<MemberRegisterScreen> createState() => _MemberRegisterScreenState();
 }
 
-class _NetworkRegisterScreenState extends State<NetworkRegisterScreen> {
+class _MemberRegisterScreenState extends State<MemberRegisterScreen> {
   final TextEditingController idController = TextEditingController();
   final TextEditingController pwController = TextEditingController();
 
@@ -35,7 +35,8 @@ class _NetworkRegisterScreenState extends State<NetworkRegisterScreen> {
             ElevatedButton(
                 onPressed: () async {
                   /// 회원가입 API 호출
-                  Dio dio = Dio(BaseOptions(baseUrl: "https://8bff-110-8-126-227.ngrok-free.app"));
+                  Dio dio = Dio(BaseOptions(
+                      baseUrl: "https://8bff-110-8-126-227.ngrok-free.app"));
                   var response = await dio.post("/api/v1/member", data: {
                     "email": idController.text,
                     "password": pwController.text,
