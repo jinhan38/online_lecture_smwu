@@ -10,11 +10,69 @@ class MemberDetailScreen extends StatefulWidget {
 }
 
 class _MemberDetailScreenState extends State<MemberDetailScreen> {
+  final idController = TextEditingController();
+  final pwController = TextEditingController();
+  final descriptionController = TextEditingController();
+
+  /// api 3개 호출
+  /// 1. 특정 계정의 정보 호출 -> initState 함수에서 호출
+  /// 2. 정보 업데이트 -> 업데이트 버튼 클릭 시 호출
+  /// 3. 삭제 -> 삭제 버튼 클릭 시 호출
+
+
+  @override
+  void initState() {
+    idController.text = widget.email;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    idController.dispose();
+    pwController.dispose();
+    descriptionController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("MemberDetail"),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextFormField(
+              controller: idController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(hintText: "아이디를 입력해주세요"),
+            ),
+            TextFormField(
+              controller: pwController,
+              obscureText: true,
+              decoration: InputDecoration(hintText: "비밀번호를 입력해주세요"),
+            ),
+            TextFormField(
+              controller: descriptionController,
+              decoration: InputDecoration(hintText: "계정 정보를 입력해주세요"),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(fixedSize: Size(double.infinity, 50)),
+              child: Text("업데이트"),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(fixedSize: Size(double.infinity, 50)),
+              child: Text("삭제"),
+            ),
+          ],
+        ),
       ),
     );
   }
