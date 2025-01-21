@@ -18,7 +18,8 @@ class _MemberListScreenState extends State<MemberListScreen> {
   /// 1. 멤버 목록 호출
   /// 1-1. 멤버 목록 호출할 때 loading UI 표출
   /// 2. 멤버 목록 ListView로 출력(데이터 파싱)
-  /// 3. 멤버 목록 중 하나 클릭 했을 때 화면 이동
+  /// 3. 멤버 목록 클릭 가능하도록 (화면 이동)
+  /// 10 ~ 15분
   @override
   void initState() {
     getData();
@@ -27,6 +28,7 @@ class _MemberListScreenState extends State<MemberListScreen> {
 
   Future<void> getData() async {
     Response response = await dio.get("/api/v1/member/all");
+    await Future.delayed(const Duration(seconds: 1));
 
     /// as : 캐스팅
     /// Iterable : 반복적인 형태의 데이터
@@ -63,14 +65,8 @@ class _MemberListScreenState extends State<MemberListScreen> {
         title: Text("MemberList"),
       ),
       body: loading
-          ? CircularProgressIndicator()
-          : SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(dataList.toString()),
-                ],
-              ),
-            ),
+          ? Center(child: CircularProgressIndicator())
+          : SingleChildScrollView(),
     );
   }
 }
