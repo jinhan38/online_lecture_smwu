@@ -22,6 +22,7 @@ class _NetworkScreenState extends State<NetworkScreen> {
         title: Text("Network"),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ElevatedButton(
               onPressed: () {
@@ -40,7 +41,7 @@ class _NetworkScreenState extends State<NetworkScreen> {
                   },
                 ));
               },
-              child: Text("회원가입")),
+              child: Text("멤버 목록")),
         ],
       ),
     );
