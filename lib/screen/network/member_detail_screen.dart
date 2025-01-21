@@ -1,9 +1,15 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class MemberDetailScreen extends StatefulWidget {
-  const MemberDetailScreen({required this.email, super.key});
+  const MemberDetailScreen({
+    required this.email,
+    required this.dio,
+    super.key,
+  });
 
   final String email;
+  final Dio dio;
 
   @override
   State<MemberDetailScreen> createState() => _MemberDetailScreenState();
@@ -19,10 +25,13 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
   /// 2. 정보 업데이트 -> 업데이트 버튼 클릭 시 호출
   /// 3. 삭제 -> 삭제 버튼 클릭 시 호출
 
-
   @override
   void initState() {
     idController.text = widget.email;
+    widget.dio.post("/api/v1/member/find-one", data: {
+      "email": widget.email,
+      "password": "qqqq",
+    });
     super.initState();
   }
 
@@ -46,6 +55,7 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextFormField(
+              readOnly: true,
               controller: idController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(hintText: "아이디를 입력해주세요"),
