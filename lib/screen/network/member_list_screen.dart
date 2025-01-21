@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:online_lecture_smwu/screen/network/member_detail_screen.dart';
 
 import 'member_model.dart';
 
@@ -62,11 +63,66 @@ class _MemberListScreenState extends State<MemberListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MemberList"),
+        title: const Text("MemberList"),
       ),
-      body: loading
-          ? Center(child: CircularProgressIndicator())
-          : SingleChildScrollView(),
+      body: loading ? const Center(child: CircularProgressIndicator()) : memberListView(),
+    );
+  }
+
+  /// 멤버 목록 Widget을 추가하세요
+  /// 1. ListView
+  /// 2. SinglechildScrollView
+
+  Widget memberListView() {
+    return ListView.builder(
+      itemCount: dataList.length,
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      itemBuilder: (context, index) {
+        return InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return MemberDetailScreen(email: dataList[index].email);
+              },
+            ));
+          },
+          child: item(dataList[index]),
+        );
+      },
+    );
+  }
+
+  Widget memberSingle() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ...List.generate(
+            dataList.length,
+            (index) {
+              return item(dataList[index]);
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget item(MemberModel member) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "이메일 : ${member.email}",
+            style: TextStyle(fontSize: 15),
+          ),
+          Text(
+            "설명 : ${member.description}",
+            style: TextStyle(fontSize: 15),
+          ),
+        ],
+      ),
     );
   }
 }
