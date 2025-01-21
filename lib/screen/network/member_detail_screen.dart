@@ -31,7 +31,14 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
     widget.dio.post("/api/v1/member/find-one", data: {
       "email": widget.email,
       "password": "qqqq",
-    });
+    }).then(
+      (value) {
+        print(value.data);
+        //  {id: 9, email: jinhan38@sailing-it.net, password: qqqq, description: }
+        pwController.text = value.data["password"];
+        descriptionController.text = value.data["description"];
+      },
+    );
     super.initState();
   }
 
