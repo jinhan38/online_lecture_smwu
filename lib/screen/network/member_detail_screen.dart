@@ -33,8 +33,6 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
       "password": "qqqq",
     }).then(
       (value) {
-        print(value.data);
-        //  {id: 9, email: jinhan38@sailing-it.net, password: qqqq, description: }
         pwController.text = value.data["password"];
         descriptionController.text = value.data["description"];
       },
@@ -54,10 +52,10 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MemberDetail"),
+        title: const Text("MemberDetail"),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -65,28 +63,42 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
               readOnly: true,
               controller: idController,
               keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(hintText: "아이디를 입력해주세요"),
+              decoration: const InputDecoration(hintText: "아이디를 입력해주세요"),
             ),
             TextFormField(
               controller: pwController,
               obscureText: true,
-              decoration: InputDecoration(hintText: "비밀번호를 입력해주세요"),
+              decoration: const InputDecoration(hintText: "비밀번호를 입력해주세요"),
             ),
             TextFormField(
               controller: descriptionController,
-              decoration: InputDecoration(hintText: "계정 정보를 입력해주세요"),
+              decoration: const InputDecoration(hintText: "계정 정보를 입력해주세요"),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () async {
+                Response response = await widget.dio.patch("/api/v1/member/update", data: {
+                  "email": widget.email,
+                  "password": pwController.text,
+                  "description": descriptionController.text,
+                });
+                if (response.statusCode == 200) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text("성공"),
+                  ));
+
+                  await Future.delayed(Duration(seconds: 1));
+                  Navigator.pop(context, true);
+                }
+              },
+              style: ElevatedButton.styleFrom(fixedSize: const Size(double.infinity, 50)),
+              child: const Text("업데이트"),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {},
-              style: ElevatedButton.styleFrom(fixedSize: Size(double.infinity, 50)),
-              child: Text("업데이트"),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(fixedSize: Size(double.infinity, 50)),
-              child: Text("삭제"),
+              style: ElevatedButton.styleFrom(fixedSize: const Size(double.infinity, 50)),
+              child: const Text("삭제"),
             ),
           ],
         ),

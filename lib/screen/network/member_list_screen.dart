@@ -87,7 +87,15 @@ class _MemberListScreenState extends State<MemberListScreen> {
                   dio: dio,
                 );
               },
-            ));
+            )).then(
+              (value) {
+                if (value != null && value is bool && value) {
+                  loading = true;
+                  setState(() {});
+                  getData();
+                }
+              },
+            );
           },
           child: item(dataList[index]),
         );
