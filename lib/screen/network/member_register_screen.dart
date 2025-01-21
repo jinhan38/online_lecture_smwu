@@ -36,7 +36,7 @@ class _MemberRegisterScreenState extends State<MemberRegisterScreen> {
                 onPressed: () async {
                   /// 회원가입 API 호출
                   Dio dio = Dio(BaseOptions(
-                      baseUrl: "https://244b-110-8-126-227.ngrok-free.appㄹ"));
+                      baseUrl: "https://244b-110-8-126-227.ngrok-free.app"));
                   var response = await dio.post("/api/v1/member", data: {
                     "email": idController.text,
                     "password": pwController.text,
