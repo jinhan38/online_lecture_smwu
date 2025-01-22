@@ -16,6 +16,7 @@ import 'package:online_lecture_smwu/screen/stack/stack_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/stack/stack_screen.dart';
 import 'package:online_lecture_smwu/screen/stateful/stateful_screen.dart';
 import 'package:online_lecture_smwu/screen/stateless/stateless_screen.dart';
+import 'package:online_lecture_smwu/screen/tabbar/tab_bar_screen.dart';
 import 'package:online_lecture_smwu/screen/text/text_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/text/text_screen.dart';
 import 'package:online_lecture_smwu/screen/todo/todo_screen.dart';
@@ -267,6 +268,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("PageView")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const TabBarScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("TabBar")),
             ],
           ),
         ),
