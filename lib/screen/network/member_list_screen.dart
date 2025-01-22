@@ -12,7 +12,7 @@ class MemberListScreen extends StatefulWidget {
 }
 
 class _MemberListScreenState extends State<MemberListScreen> {
-  Dio dio = Dio(BaseOptions(baseUrl: "https://244b-110-8-126-227.ngrok-free.app"));
+  Dio dio = Dio(BaseOptions(baseUrl: "https://7210-110-8-126-227.ngrok-free.app"));
   bool loading = true;
   List<MemberModel> dataList = [];
 

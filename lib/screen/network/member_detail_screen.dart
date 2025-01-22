@@ -87,7 +87,7 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
                     content: Text("성공"),
                   ));
 
-                  await Future.delayed(Duration(seconds: 1));
+                  await Future.delayed(const Duration(seconds: 1));
                   Navigator.pop(context, true);
                 }
               },
@@ -96,7 +96,22 @@ class _MemberDetailScreenState extends State<MemberDetailScreen> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                Response response = await widget.dio.delete("/api/v1/member/delete", data: {
+                  "email": idController.text,
+                  "password": pwController.text,
+                });
+
+                /// 204 : Content가 없다.
+                if(response.statusCode == 204) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text("성공"),
+                  ));
+
+                  await Future.delayed(const Duration(seconds: 1));
+                  Navigator.pop(context, true);
+                }
+              },
               style: ElevatedButton.styleFrom(fixedSize: const Size(double.infinity, 50)),
               child: const Text("삭제"),
             ),
