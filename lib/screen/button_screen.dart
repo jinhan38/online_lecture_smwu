@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_lecture_smwu/screen/checkbox/checkbox_screen.dart';
 import 'package:online_lecture_smwu/screen/click/click_screen.dart';
@@ -10,6 +9,7 @@ import 'package:online_lecture_smwu/screen/container_screen.dart';
 import 'package:online_lecture_smwu/screen/image/image_screen.dart';
 import 'package:online_lecture_smwu/screen/listview/listview_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/network/network_screen.dart';
+import 'package:online_lecture_smwu/screen/pageview/page_view_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_screen.dart';
 import 'package:online_lecture_smwu/screen/stack/stack_practice_screen.dart';
@@ -257,6 +257,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("Network")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const PageViewScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("PageView")),
             ],
           ),
         ),
