@@ -11,11 +11,14 @@ class PageViewScreen extends StatefulWidget {
 class _PageViewScreenState extends State<PageViewScreen> {
   final PageController pageController = PageController();
 
+  double opacity = 0;
+
   @override
   void initState() {
     pageController.addListener(
       () {
-        print(pageController.page!);
+        opacity = pageController.page! * 0.3;
+        setState(() {});
       },
     );
     super.initState();
@@ -35,9 +38,20 @@ class _PageViewScreenState extends State<PageViewScreen> {
       ),
       body: Column(
         children: [
+          /// 0 ~ 1
+          Opacity(
+            opacity: opacity,
+            child: Container(
+              color: Colors.black,
+              height: 50,
+            ),
+          ),
           Expanded(
             child: PageView(
               controller: pageController,
+              onPageChanged: (value) {
+                print("value : $value");
+              },
               children: [
                 Container(color: Colors.red),
                 Container(color: Colors.blue),
