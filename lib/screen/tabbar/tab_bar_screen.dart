@@ -10,12 +10,24 @@ class TabBarScreen extends StatefulWidget {
 class _TabBarScreenState extends State<TabBarScreen> with SingleTickerProviderStateMixin {
   late TabController tabController = TabController(length: 8, vsync: this);
 
+  List<String> labelList = [
+    "코끼리",
+    "호랑이",
+    "사자",
+    "얼룩말",
+    "하마",
+    "하이에나",
+    "강아지",
+    "고양이",
+  ];
+
   /// 실습
   /// 1. Tab 안에 들어가는 문자열들을 List<String> 배열로 만드세요.
   /// 2. List<String>과 List.generate를 사용해서 Tab들을 추가하세요.
   /// 3. onTap함수가 호출 됐을 때 선택된 Tab의 문자열을 selectedTab에 입력 후 화면을 업데이트하세요
 
   String selectedTab = "none";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,11 +37,15 @@ class _TabBarScreenState extends State<TabBarScreen> with SingleTickerProviderSt
       ),
       body: Column(
         children: [
-          Text(selectedTab),
+          Text(
+            selectedTab,
+            style: const TextStyle(fontSize: 20),
+          ),
           TabBar(
             controller: tabController,
             onTap: (value) {
-              print(value);
+              selectedTab = labelList[value];
+              setState(() {});
             },
             isScrollable: true,
             labelStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -48,16 +64,7 @@ class _TabBarScreenState extends State<TabBarScreen> with SingleTickerProviderSt
             dividerColor: Colors.black,
             padding: EdgeInsets.all(30),
             labelPadding: EdgeInsets.symmetric(horizontal: 10),
-            tabs: [
-              Tab(text: "코끼리"),
-              Tab(text: "호랑이"),
-              Tab(text: "사자"),
-              Tab(text: "얼룩말"),
-              Tab(text: "하마"),
-              Tab(text: "하이에나"),
-              Tab(text: "강아지"),
-              Tab(text: "고양이"),
-            ],
+            tabs: List.generate(labelList.length, (index) => Tab(text: labelList[index])),
           ),
         ],
       ),
