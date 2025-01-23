@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_lecture_smwu/screen/bottom_sheet/bottom_sheet_screen.dart';
 import 'package:online_lecture_smwu/screen/checkbox/checkbox_screen.dart';
 import 'package:online_lecture_smwu/screen/click/click_screen.dart';
 import 'package:online_lecture_smwu/screen/column_practice_screen.dart';
@@ -15,6 +16,7 @@ import 'package:online_lecture_smwu/screen/row/row_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_screen.dart';
 import 'package:online_lecture_smwu/screen/stack/stack_practice_screen.dart';
 import 'package:online_lecture_smwu/screen/stack/stack_screen.dart';
+import 'package:online_lecture_smwu/screen/state_management/state_management_screen.dart';
 import 'package:online_lecture_smwu/screen/stateful/stateful_screen.dart';
 import 'package:online_lecture_smwu/screen/stateless/stateless_screen.dart';
 import 'package:online_lecture_smwu/screen/tabbar/tab_bar_screen.dart';
@@ -300,6 +302,26 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("Dialog")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const BottomSheetScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("BottomSheet")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const StateManagementScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("StateManagement")),
             ],
           ),
         ),
