@@ -1,21 +1,24 @@
-import 'package:flutter/material.dart';
-import 'package:online_lecture_smwu/screen/state_management/notifier/notifier_second_screen.dart';
-import 'package:online_lecture_smwu/screen/state_management/notifier/notifier_view_model.dart';
 
-class NotifierScreen extends StatefulWidget {
-  const NotifierScreen({super.key});
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'notifier_view_model.dart';
+
+class NotifierSecondScreen extends StatefulWidget {
+  const NotifierSecondScreen({super.key});
 
   @override
-  State<NotifierScreen> createState() => _NotifierScreenState();
+  State<NotifierSecondScreen> createState() => _NotifierSecondScreenState();
 }
 
-class _NotifierScreenState extends State<NotifierScreen> {
+class _NotifierSecondScreenState extends State<NotifierSecondScreen> {
   final NotifierViewModel vm = NotifierViewModel.instance;
   VoidCallback? listener;
 
   @override
   void initState() {
     listener = () {
+
       /// notifyListeners() 가 호출되면 진입.
       setState(() {});
     };
@@ -48,17 +51,7 @@ class _NotifierScreenState extends State<NotifierScreen> {
               onPressed: () {
                 vm.countUp();
               },
-              child: Text("Count Up")),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return const NotifierSecondScreen();
-                },
-              ));
-            },
-            child: const Text("화면이동"),
-          ),
+              child: Text("Count Up"))
         ],
       ),
     );
