@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_lecture_smwu/screen/commerce/home/home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -8,6 +9,8 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +22,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
         title: Text("Commerce App"),
       ),
       body: IndexedStack(
-        index: 2,
+        index: currentIndex,
         children: [
-          Container(color: Colors.red),
+          HomeScreen(),
           Container(color: Colors.blue),
           Container(color: Colors.purple),
         ],
@@ -41,6 +44,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
             label: "장바구니",
           ),
         ],
+        currentIndex: currentIndex,
+        selectedItemColor: Colors.indigo,
+        onTap: (value) {
+          currentIndex = value;
+          setState(() {});
+        },
       ),
     );
   }
