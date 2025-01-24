@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   List<ProductModel> newProduct = [
     ProductModel(
       image: AssetsPath.productJacketJean,
@@ -51,6 +50,33 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
+  List<ProductModel> popularProduct = [
+    ProductModel(
+      image: AssetsPath.productBag,
+      name: "샤넬 가방",
+      price: 2500000,
+      like: true,
+      reviewCount: 71,
+      reviewRating: 4.6,
+    ),
+    ProductModel(
+      image: AssetsPath.productWomen,
+      name: "여성 패션",
+      price: 99000,
+      like: true,
+      reviewCount: 64,
+      reviewRating: 4.8,
+    ),
+    ProductModel(
+      image: AssetsPath.productManSuit,
+      name: "남성 정장",
+      price: 350000,
+      like: false,
+      reviewCount: 35,
+      reviewRating: 4.0,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -62,6 +88,8 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(height: 30),
         HomeSubtitle(label: "신제품"),
         ProductHorizontal(productList: newProduct),
+        HomeSubtitle(label: "인기상품"),
+        ProductHorizontal(productList: popularProduct),
         const SizedBox(height: 80),
       ],
     );
