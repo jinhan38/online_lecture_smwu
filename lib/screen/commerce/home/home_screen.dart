@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:online_lecture_smwu/screen/commerce/cart/cart_view_model.dart';
 import 'package:online_lecture_smwu/screen/commerce/home/widgets/home_image.dart';
 import 'package:online_lecture_smwu/screen/commerce/home/widgets/home_short_cut.dart';
 import 'package:online_lecture_smwu/screen/commerce/home/widgets/home_subtitle.dart';
+import 'package:online_lecture_smwu/screen/commerce/home/widgets/product_grid.dart';
 import 'package:online_lecture_smwu/screen/commerce/home/widgets/product_horizontal.dart';
 import 'package:online_lecture_smwu/screen/commerce/model/product_model.dart';
 
@@ -82,14 +84,23 @@ class _HomeScreenState extends State<HomeScreen> {
     return ListView(
       shrinkWrap: true,
       children: [
-        HomeImage(),
+        const HomeImage(),
         const SizedBox(height: 30),
         HomeShortCut(),
         const SizedBox(height: 30),
-        HomeSubtitle(label: "신제품"),
+        const HomeSubtitle(label: "신제품"),
         ProductHorizontal(productList: newProduct),
-        HomeSubtitle(label: "인기상품"),
+        const HomeSubtitle(label: "인기상품"),
         ProductHorizontal(productList: popularProduct),
+        const HomeSubtitle(label: "오늘만 할인"),
+        ProductGrid(
+          productList: newProduct,
+          scroll: false,
+          onPressed: (productModel) {
+            print(productModel);
+            CartViewModel.instance.addProduct(productModel);
+          },
+        ),
         const SizedBox(height: 80),
       ],
     );
