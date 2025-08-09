@@ -11,6 +11,7 @@ import 'package:online_lecture_smwu/screen/container_screen.dart';
 import 'package:online_lecture_smwu/screen/dialog/dialog_screen.dart';
 import 'package:online_lecture_smwu/screen/image/image_screen.dart';
 import 'package:online_lecture_smwu/screen/listview/listview_practice_screen.dart';
+import 'package:online_lecture_smwu/screen/navigator/navigator_1_screen.dart';
 import 'package:online_lecture_smwu/screen/network/network_screen.dart';
 import 'package:online_lecture_smwu/screen/pageview/page_view_screen.dart';
 import 'package:online_lecture_smwu/screen/row/row_practice_screen.dart';
@@ -46,7 +47,6 @@ class ButtonScreen extends StatelessWidget {
             children: [
               ElevatedButton(
                   onPressed: () {
-                    // 화면 이동 Navigator
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
                         return const NavigationScreen();
@@ -57,7 +57,6 @@ class ButtonScreen extends StatelessWidget {
               const SizedBox(height: 10),
               ElevatedButton(
                   onPressed: () {
-                    // 화면 이동 Navigator
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
                         return const ContainerScreen();
@@ -345,6 +344,16 @@ class ButtonScreen extends StatelessWidget {
                     ));
                   },
                   child: const Text("UiExam")),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const NavigatorScreen();
+                      },
+                    ));
+                  },
+                  child: const Text("Navigator")),
             ],
           ),
         ),

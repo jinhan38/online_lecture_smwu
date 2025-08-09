@@ -1,0 +1,2 @@
+/Users/jinhan/Desktop/development/online_lecture_smwu/android/app/.cxx/Debug/4q4w4dh5/x86/CMakeFiles/edit_cache.dir
+/Users/jinhan/Desktop/development/online_lecture_smwu/android/app/.cxx/Debug/4q4w4dh5/x86/CMakeFiles/rebuild_cache.dir

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:online_lecture_smwu/screen/pageview/custom_indicator.dart';
 
 class PageViewScreen extends StatefulWidget {
   const PageViewScreen({super.key});
@@ -10,14 +11,12 @@ class PageViewScreen extends StatefulWidget {
 
 class _PageViewScreenState extends State<PageViewScreen> {
   final PageController pageController = PageController();
-
-  double opacity = 0;
+  int currentIndex = 0;
 
   @override
   void initState() {
     pageController.addListener(
       () {
-        opacity = pageController.page! * 0.3;
         setState(() {});
       },
     );
@@ -34,23 +33,24 @@ class _PageViewScreenState extends State<PageViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("PageView"),
+        title: const Text("PageView"),
       ),
       body: Column(
         children: [
-          /// 0 ~ 1
-          Opacity(
-            opacity: opacity,
-            child: Container(
-              color: Colors.black,
-              height: 50,
-            ),
+          const SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomIndicator(totalSize: 3, size: 8, currentIndex: currentIndex),
+            ],
           ),
+          const SizedBox(height: 24),
           Expanded(
             child: PageView(
               controller: pageController,
               onPageChanged: (value) {
-                print("value : $value");
+                currentIndex = value;
+                setState(() {});
               },
               children: [
                 Container(color: Colors.red),
