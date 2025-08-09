@@ -59,11 +59,21 @@ class _Navigator2ScreenState extends State<Navigator2Screen> {
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  return Navigator3Screen();
+                  return const Navigator3Screen();
                 },
               ));
             },
             child: const Text("다음 화면"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                builder: (context) {
+                  return const Navigator3Screen();
+                },
+              ));
+            },
+            child: const Text("다음 화면(현재 화면 제거)"),
           ),
         ],
       ),

@@ -34,7 +34,6 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
                 return Navigator2Screen(count: count);
               })).then(
                 (value) {
-                  print('_NavigatorScreenState.build vv : $value');
                   if (value != null && value is int) {
                     count = value;
                     setState(() {});
