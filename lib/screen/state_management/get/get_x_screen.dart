@@ -34,11 +34,45 @@ class _GetXScreenState extends State<GetXScreen> {
               ),
             );
           }),
+          Obx(() {
+            return Center(
+              child: Text(
+                MyController.to.currentTime.value.toString(),
+                style: const TextStyle(fontSize: 20),
+              ),
+            );
+          }),
+          Obx(() {
+            return Center(
+              child: Text(
+                MyController.to.nameList.toString(),
+                style: const TextStyle(fontSize: 20),
+              ),
+            );
+          }),
           ElevatedButton(
             onPressed: () {
               MyController.to.countUp();
             },
             child: const Text("Count up"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              MyController.to.changeTime();
+            },
+            child: const Text("Change time"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              MyController.to.addNameList("name");
+            },
+            child: const Text("Add name"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              MyController.to.removeLastName();
+            },
+            child: const Text("Remove last name"),
           ),
           ElevatedButton(
             onPressed: () {

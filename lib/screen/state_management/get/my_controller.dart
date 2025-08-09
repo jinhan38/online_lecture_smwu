@@ -13,8 +13,22 @@ class MyController extends GetxController {
   }
 
   RxInt count = 0.obs;
+  RxString currentTime = "".obs;
+  RxList<String> nameList = <String>[].obs;
 
   void countUp() {
     count.value++;
+  }
+
+  void changeTime() {
+    currentTime.value = DateTime.now().toString();
+  }
+
+  void addNameList(String name){
+    nameList.add(name);
+  }
+
+  void removeLastName(){
+    nameList.removeLast();
   }
 }

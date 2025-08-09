@@ -12,7 +12,7 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
-  get: ^4.6.6
+  get: ^4.7.2
   provider: ^6.1.2
   intl: ^0.20.1
   fluttertoast: ^8.2.10

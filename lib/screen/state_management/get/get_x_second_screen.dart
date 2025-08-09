@@ -11,7 +11,7 @@ class GetXSecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("GetXSecond"),
+        title: const Text("GetXSecond"),
       ),
       body: Column(
         children: [

@@ -10,7 +10,7 @@ class NotifierScreen extends StatefulWidget {
 }
 
 class _NotifierScreenState extends State<NotifierScreen> {
-  final NotifierViewModel vm = NotifierViewModel.instance;
+  final NotifierViewModel vm = NotifierViewModel();
   VoidCallback? listener;
 
   @override

@@ -9,7 +9,7 @@ void main() {
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => CounterModel()),
-    ], child: MyApp()),
+    ], child: const MyApp()),
   );
 }
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ButtonScreen(),
+      home: const ButtonScreen(),
       scrollBehavior: CustomScrollBehavior(),
     );
   }

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
 class NotifierViewModel with ChangeNotifier {
+  static final NotifierViewModel _singleton = NotifierViewModel._single();
 
-  /// static 인스턴스 생성
-  static final NotifierViewModel instance = NotifierViewModel();
+  factory NotifierViewModel() {
+    return _singleton;
+  }
+
+  NotifierViewModel._single();
+
+  void update() => notifyListeners();
 
   int count = 0;
 
